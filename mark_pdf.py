@@ -4,6 +4,10 @@ import os
 
 
 def mark_pdfs(path_to, watermark):
+    """Set watermark on first page of the pdf file.
+    :param path_to: Path to a pdf file for watermarking.
+    :param watermark: Path to a pdf file with watermark.
+    """
     os.makedirs('marked_pdfs', exist_ok=True)
     path_to = Path(path_to)
     if not watermark.endswith('.pdf'):
