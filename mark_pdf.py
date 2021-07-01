@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 
 
-def mark_pdfs(path_to, watermark):
+def mark_pdf(path_to, watermark):
     """Set watermark on first page of the pdf file.
     :param path_to: Path to a pdf file for watermarking.
     :param watermark: Path to a pdf file with watermark.
@@ -30,3 +30,8 @@ def mark_pdfs(path_to, watermark):
             result_pdf.close()
     return 'Done'
 
+def mark_all_pdfs(path_to, watermark):
+
+    list_pdfs = list(filter(lambda x: x.endswith('.pdf'), os.listdir(path_to)))
+    for pdf_file in list_pdfs:
+        mark_pdf(Path(path_to, pdf_file), watermark)
