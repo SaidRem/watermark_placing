@@ -36,3 +36,8 @@ def all_marking(photos_folder, watermark):
             img.paste(wat, (int((width/2)-(wat_width/2)), int((height/2)+(wat_height/2))), wat)
             img.save(Path('watermarked', f'{Path(photo).stem}_mrkd.png'))
     return f'Photos watermarked => {", ".join(photos)}'
+
+def add_logo(photo, logo):
+    """TODO: Mark photo with logo 
+    on lower left corner.
+    """
