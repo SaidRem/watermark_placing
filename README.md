@@ -1,2 +1,2 @@
 # watermark_placing
-Watermark pdfs and images
+Add watermark and logo to images and photos.
