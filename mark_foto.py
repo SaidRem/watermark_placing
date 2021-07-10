@@ -38,6 +38,10 @@ def all_marking(photos_folder, watermark):
     return f'Photos watermarked => {", ".join(photos)}'
 
 def add_logo(photo, logo):
-    """TODO: Mark photo with logo 
-    on lower left corner.
-    """
+    im = Image.open(photo)
+    logo_im = Image.open(logo)
+    im_width, im_height = im.size
+    logo_im_width, logo_im_height = logo_im.size
+    im.paste(logo_im, (im_width-logo_im_width, im_height-logo_im_height), logo_im)
+    im.save(f'{Path(photo).stem}_lg.png')
+    return "Logo added successfully."
