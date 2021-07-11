@@ -38,6 +38,11 @@ def all_marking(photos_folder, watermark):
     return f'Photos watermarked => {", ".join(photos)}'
 
 def add_logo(photo, logo):
+    """
+    Mark photo with logo.
+    :param photo: Path to photo for marking.
+    :param logo: Path to logo.
+    """
     im = Image.open(photo)
     logo_im = Image.open(logo)
     im_width, im_height = im.size
