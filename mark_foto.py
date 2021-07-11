@@ -41,7 +41,13 @@ def add_logo(photo, logo):
     im = Image.open(photo)
     logo_im = Image.open(logo)
     im_width, im_height = im.size
-    logo_im_width, logo_im_height = logo_im.size
-    im.paste(logo_im, (im_width-logo_im_width, im_height-logo_im_height), logo_im)
+    logo_width, logo_height = logo_im.size
+    if logo_width*15 > im_width:
+        logo_width = logo_width//10
+        logo_height = logo_height//10
+    elif logo_height*15 > im_height:
+        logo_width = logo_width//10
+        logo_height = logo_height//10
+    im.paste(logo_im, (im_width-logo_width, im_height-logo_height), logo_im)
     im.save(f'{Path(photo).stem}_lg.png')
     return "Logo added successfully."
